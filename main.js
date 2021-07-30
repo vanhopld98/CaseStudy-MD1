@@ -49,7 +49,7 @@ function check() {
     }
     if (flag) {
         point++;
-        document.getElementById("score").innerHTML = "<div style='color: red'>" + point + "</div>";
+        document.getElementById("score").innerHTML ="<strong>"+"Score : "  + point+"</strong>";
         flag = false;
     }
 }
@@ -61,7 +61,7 @@ function reset() {
     taskBar.x = 270;
     taskBar.y = 340;
     point = 0;
-    document.getElementById("score").innerHTML = "<div style='color: red'>" + point + "</div>";
+    document.getElementById("score").innerHTML= "Score : " + point;
     clearCanvas();
     circle.drawCircle();
     taskBar.drawTaskBar();
