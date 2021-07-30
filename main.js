@@ -55,15 +55,28 @@ function check() {
 }
 
 function reset() {
-    location.reload()
+    window.cancelAnimationFrame(id);
+    circle.x = 300;
+    circle.y = 20;
+    taskBar.x = 270;
+    taskBar.y = 340;
+    point = 0;
+    document.getElementById("score").innerHTML = "<div style='color: red'>" + point + "</div>";
+    clearCanvas();
+    circle.drawCircle();
+    taskBar.drawTaskBar();
+    gameOver = false;
+    GameStart();
 }
 
 function clearCanvas() {
     ctx.clearRect(0, 0, c.width, c.height)
 }
 
+let music = document.getElementById("audio");
+
 function pauseAudio() {
-    document.getElementById("audio").pause();
+    music.pause();
 }
 
 function upSpeed() {
@@ -75,13 +88,16 @@ function upSpeed() {
         circle.speedX = 9;
         circle.speedY = 7;
     }
-    if (point === 30){
+    if (point === 30) {
         circle.speedX = 10;
         circle.speedY = 8;
     }
 }
 
+let id;
+
 function GameStart() {
+    music.play();
     if (gameOver === false) {
         clearCanvas();
         check();
@@ -89,10 +105,8 @@ function GameStart() {
         circle.drawCircle();
         taskBar.drawTaskBar();
         upSpeed();
-        window.requestAnimationFrame(GameStart);
+        id = window.requestAnimationFrame(GameStart);
     } else {
         alert("GAME OVER\nĐiểm của bạn là: " + point + "\nẤn Reset để chơi lại");
     }
 }
-
-GameStart();

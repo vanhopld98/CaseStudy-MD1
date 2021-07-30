@@ -20,25 +20,28 @@
         button {
             border-radius: 12px;
         }
+
+        body {
+            background-image: url("backgroud.jpg")
+        }
     </style>
 </head>
 
-<body onload="keycode()" background="backgroud.jpg">
+<body onload="keycode()">
 <center>
     <div style="color: red">Score :
         <div id="score"></div>
     </div>
     <canvas id="myCanvas" width="640" height="360" style="border: 1px solid ; color: red"></canvas>
     <br>
+    <button type="button" onclick="GameStart()">Play</button>
     <button type="button" onclick="reset()">Reset</button>
     <button type="button" onclick="pauseAudio()">Pause Audio</button>
     <br>
-    <audio autoplay loop id="audio">
-        <source src="will_armex_you_and_i_feat_katy_m_62753020671131593.mp3">
-    </audio>
+    <audio id="audio" src="will_armex_you_and_i_feat_katy_m_62753020671131593.mp3"></audio>
     <h4 style="color: red"><strong><i><u>HƯỚNG DẪN:</u></i></strong></h4>
-
-    <p style="color: orangered">Dùng 2 phím di ← hoặc → hoặc 2 phím<strong> "A" </strong>  và <strong> "D" </strong>để di chuyển thanh TaskBar và đỡ bóng<br>
+    <p style="color: orangered">Dùng 2 phím di ← hoặc → hoặc 2 phím<strong> "A" </strong> và <strong> "D" </strong>để di
+        chuyển thanh TaskBar và đỡ bóng<br>
         Nếu bạn không di chuyển được thanh TaskBar để đỡ bóng thì sẽ gameover<br>
         Mỗi lần bóng chạm thanh Taskbar sẽ được cộng thêm 1 điểm<br>
         Ấn nút <strong><i>Reset</i></strong> để chơi lại</p>
